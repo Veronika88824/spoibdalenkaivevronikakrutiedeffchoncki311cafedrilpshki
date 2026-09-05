@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Flask Project{% endblock %}</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #e8dff5 0%, #c3b1e1 50%, #a2d2ff 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #1e2a4a 0%, #2c3e6b 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .header-content {
+            max-width: 900px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            margin: 5px 0 15px 0;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ce93d8;
+            border-bottom: 3px solid #ce93d8;
+            text-shadow: 0 0 30px rgba(206, 147, 216, 0.8);
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #f3e5f5;;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        footer {
+            max-width: 900px;
+            margin: 20px auto;
+            color: #bf360c;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1> МАИ | Инноватика 317</h1>
+        <p class="subtitle">Две студентки. Один проект. Миллион идей.</p>
+        <nav>
+            <a href="{{ url_for('index') }}"> Главная</a>
+            <a href="{{ url_for('about') }}"> О проекте</a>
+            <a href="{{ url_for('changelog') }}"> Лог изменений</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>Flask Project</footer>
+</body>
+</html>
